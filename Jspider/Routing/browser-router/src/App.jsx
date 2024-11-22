@@ -4,9 +4,11 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
+import Toaster from "react-hot-toast";
 function App() {
   return (
     <>
+      <Toaster />
       <BrowserRouter>
         <Navbar />
         <Routes>
