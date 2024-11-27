@@ -1,13 +1,16 @@
+import React from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Register from "./Pages/Register";
-import Login from "./Pages/Login";
-import Toaster from "react-hot-toast";
-function App() {
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import PrivateRoute from "./components/PrivateRoute";
+import { Toaster } from "react-hot-toast";
+import Profile from "./pages/Profile";
+const App = () => {
   return (
-    <>
+    <div>
       <Toaster />
       <BrowserRouter>
         <Navbar />
@@ -16,10 +19,18 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
-}
+};
 
 export default App;

@@ -6,6 +6,20 @@
       "useremail": "test@gmail.com",
       "userpassword": "123",
       "userPhoneNo": "1234565432"
+    },
+    {
+      "id": "88fb",
+      "username": "test2",
+      "useremail": "test2@gmail.com",
+      "userpassword": "test2_123",
+      "userPhoneNo": "9876543212"
+    },
+    {
+      "id": "5869",
+      "username": "test3",
+      "useremail": "test3@gamil.com",
+      "userpassword": "test3123",
+      "userPhoneNo": "123232"
     }
   ]
 }

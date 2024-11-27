@@ -1,24 +1,54 @@
+import React from "react";
 import style from "./navbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 const Navbar = () => {
+  let userID = localStorage.getItem("userID");
+  console.log(userID, "Navbar");
+
+  let navigate = useNavigate();
+
+  let logout = () => {
+    localStorage.removeItem("userID");
+    navigate("/login");
+    toast.success("Logged Out");
+  };
+
   return (
     <nav>
-      <aside className={style.logo}>Logo</aside>
+      <aside className={style.logo}> 🤯</aside>
       <ul className={style.menu}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about">about</Link>
         </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
+        {userID ? (
+          <>
+            <li className={style.drop}>
+              <Link to="/profile">Profile</Link>
+              <ul className={style.dropdown}>
+                <li>Update Profile</li>
+                <li>Delete Profile</li>
+              </ul>
+            </li>
+
+            <li onClick={logout}>Logout</li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/register">register</Link>
+            </li>
+            <li>
+              <Link to="/login">login</Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
 };
+
 export default Navbar;

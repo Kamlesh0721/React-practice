@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "./register.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -32,7 +32,7 @@ const Register = () => {
           userpassword: "",
           userPhoneNo: "",
         });
-        navigate("/login");
+        navigate("/login")
       })
       .catch(() => {
         toast.error("not registered");

@@ -1,7 +1,7 @@
 nav {
   height: 70px;
   width: 100%;
-  background-color: rgba(24, 24, 24, 0.978);
+  background-color: #1a2b54;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -10,6 +10,10 @@ nav {
 nav > .logo {
   height: 100%;
   width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
 }
 nav > .menu {
   height: 100%;
@@ -20,4 +24,28 @@ nav > .menu {
   list-style: none;
   text-transform: capitalize;
   font-weight: 600;
+}
+
+.drop {
+  position: relative;
+}
+
+.drop > .dropdown {
+  background-color: beige;
+  position: absolute;
+  list-style: none;
+  padding: 5px;
+  border-radius: 5px;
+  /* display: none; */
+}
+
+.drop > .dropdown > li {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: black;
+}
+
+.drop > .dropdown > li:hover {
+  background-color: rgba(245, 245, 220, 0.176);
 }

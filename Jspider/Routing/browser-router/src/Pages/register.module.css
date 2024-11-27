@@ -50,7 +50,7 @@
 #register > form > div > button {
   padding: 5px 20px;
   border-radius: 5px;
-  border: 0.5px solid whitesmoke;
+  border: .5px solid whitesmoke;
   cursor: pointer;
   background-color: #1a2b54;
   color: white;
