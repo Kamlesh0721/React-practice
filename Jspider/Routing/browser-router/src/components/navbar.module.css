@@ -36,7 +36,7 @@ nav > .menu {
   list-style: none;
   padding: 5px;
   border-radius: 5px;
-  /* display: none; */
+  display: none;
 }
 
 .drop > .dropdown > li {
@@ -47,5 +47,11 @@ nav > .menu {
 }
 
 .drop > .dropdown > li:hover {
-  background-color: rgba(245, 245, 220, 0.176);
+  background-color: rgb(253, 253, 191);
+  cursor: pointer;
+  font-weight: 550;
+}
+
+.drop:hover > .dropdown {
+  display: block;
 }

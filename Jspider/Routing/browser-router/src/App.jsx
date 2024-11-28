@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import UpdateProfile from "./pages/UpdateProfile";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Profile";
@@ -24,6 +25,14 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/updateProfile"
+            element={
+              <PrivateRoute>
+                <UpdateProfile />
               </PrivateRoute>
             }
           />

@@ -29,7 +29,9 @@ const Navbar = () => {
             <li className={style.drop}>
               <Link to="/profile">Profile</Link>
               <ul className={style.dropdown}>
-                <li>Update Profile</li>
+                <li>
+                  <Link to="/updateProfile">Update Profile</Link>
+                </li>
                 <li>Delete Profile</li>
               </ul>
             </li>
