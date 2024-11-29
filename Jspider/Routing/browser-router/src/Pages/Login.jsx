@@ -36,7 +36,14 @@ const Login = () => {
       );
     });
     console.log(authUser);
-    if (authUser) {
+    if (
+      authUser.useremail === "admin@gmail.com" &&
+      authUser.userpassword === "admin123"
+    ) {
+      toast.success(`Welcome ${authUser.username}`);
+      localStorage.setItem("userId", authUser.id);
+      navigate("/admin");
+    } else if (authUser) {
       toast.success(`Welcome ${authUser.username}`);
       localStorage.setItem("userID", authUser.id);
       navigate("/profile");

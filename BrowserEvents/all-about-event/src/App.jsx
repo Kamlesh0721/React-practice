@@ -1,8 +1,17 @@
+import { useState } from "react";
 import FBCLifeCycle from "./Component/FBCLifeCycle";
 function App() {
+  let [toggle, setToggle] = useState(true);
   return (
     <>
-      <FBCLifeCycle></FBCLifeCycle>
+      {toggle ? <FBCLifeCycle /> : ""}
+      <button
+        onClick={() => {
+          setToggle(!toggle);
+        }}
+      >
+        Delete Counter
+      </button>
     </>
   );
 }

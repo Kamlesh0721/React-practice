@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav>
-      <aside className={style.logo}> 🤯</aside>
+      <aside className={style.logo}>🤯</aside>
       <ul className={style.menu}>
         <li>
           <Link to="/">home</Link>
@@ -29,14 +29,11 @@ const Navbar = () => {
             <li className={style.drop}>
               <Link to="/profile">Profile</Link>
               <ul className={style.dropdown}>
-                <li>
-                  <Link to="/updateProfile">Update Profile</Link>
-                </li>
-                <li>Delete Profile</li>
+                <li><Link to="/updateprofile">update</Link></li>
+                <li>delete</li>
+                <li onClick={logout}>Logout</li>
               </ul>
             </li>
-
-            <li onClick={logout}>Logout</li>
           </>
         ) : (
           <>

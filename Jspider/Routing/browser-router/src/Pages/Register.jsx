@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  let [resgisterUser, setRegisterUser] = useState({
+  let [registerUser, setRegisterUser] = useState({
     username: "",
     useremail: "",
     userpassword: "",
@@ -16,7 +16,7 @@ const Register = () => {
 
   let RegisterHandle = (e) => {
     let { name, value } = e.target;
-    setRegisterUser({ ...resgisterUser, [name]: value });
+    setRegisterUser({ ...registerUser, [name]: value });
   };
 
   let registerSubmit = (e) => {
@@ -32,7 +32,7 @@ const Register = () => {
           userpassword: "",
           userPhoneNo: "",
         });
-        navigate("/login")
+        navigate("/login");
       })
       .catch(() => {
         toast.error("not registered");

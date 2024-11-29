@@ -1,13 +1,10 @@
-import style from "./style/navbar.module.css";
-import logo from "../Assets/monitoring.png";
+import style from "./navbar.module.css";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav>
-      <aside className={style.logo}>
-        <img src={logo} alt="src" />
-      </aside>
+      <aside>👻</aside>
 
       <ul className={style.menu}>
         <li>

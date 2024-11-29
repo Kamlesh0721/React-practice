@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import style from "./profile.module.css";
 
 const Profile = () => {
   let userID = localStorage.getItem("userID");
@@ -25,19 +26,22 @@ const Profile = () => {
   }, []);
 
   return (
-    <div>
+    <div id={style.profilecontainer}>
       <h1>Welcome {profileUser?.username}</h1>
 
       {APIUsers?.map((user) => {
         let { login, avatar_url, html_url, type, id } = user;
         return (
-          <section key={id}>
-            <h1>{login}</h1>
-            <img src={avatar_url} height={200} width={200} />
-            <p>
-              <a href={html_url}>view more</a>
-            </p>
-            <h3>{type}</h3>
+          <section key={id} id={style.card}>
+            <img src={avatar_url} height={100} width={100} />
+            <div>
+              <h1>{login}</h1>
+
+              <p>Type: {type}</p>
+              <p>
+                <a href={html_url}>view more</a>
+              </p>
+            </div>
           </section>
         );
       })}

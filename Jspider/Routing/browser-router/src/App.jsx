@@ -5,10 +5,11 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import UpdateProfile from "./pages/UpdateProfile";
 import PrivateRoute from "./components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Profile";
+import UpdateProfile from "./pages/UpdateProfile";
+import Admin from "./components/Admin";
 const App = () => {
   return (
     <div>
@@ -29,10 +30,19 @@ const App = () => {
             }
           />
           <Route
-            path="/updateProfile"
+            path="/updateprofile"
             element={
               <PrivateRoute>
                 <UpdateProfile />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <Admin />
               </PrivateRoute>
             }
           />

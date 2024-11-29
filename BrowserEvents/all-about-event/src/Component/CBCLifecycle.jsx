@@ -9,9 +9,10 @@ export default class CBCLifeCycle extends Component {
   componentDidMount() {
     console.log("Mounting Phase");
   }
-  getSnapshotBeforeUpdate() {
-    console.log("prev state was", state.count);
-    return null;
+
+  componentDidUpdate() {
+    console.log("prev state was", this.state.count);
+    // return null;
   }
   componentWillUnmount() {
     console.log("Unmounting phase");
