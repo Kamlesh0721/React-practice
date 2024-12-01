@@ -1,50 +1,56 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-const Register = () => {
-  const [registerUser, setRegisterUser] = useState({
-    username: "",
-    useremail: "",
-    userpassword: "",
-    userPhoneNo: "",
-  });
 
-  const registerHandle = (e) => {
+const UpdateProfile = () => {
+  let userID = localStorage.getItem("userID");
+
+  let [userDetails, setUserDetails] = useState(null);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchUser() {
+      let { data } = await axios.get(`http://localhost:5001/users/${userID}`);
+      console.log(data);
+      setUserDetails(data);
+    }
+    fetchUser();
+  }, []);
+
+  const handleChange = (e) => {
     let { name, value } = e.target;
-    setRegisterUser({ ...registerUser, [name]: value });
+    setUserDetails({ ...userDetails, [name]: value });
   };
 
-  const navigate = useNavigate();
-
-  const registerSubmit = (e) => {
+  const updateFormSubmit = (e) => {
     e.preventDefault();
-    console.log(registerUser);
+    console.log("Updated value ", userDetails);
     axios
-      .post("http://localhost:5001/users", registerUser)
+      .put(`http://localhost:5001/users/${userID}`, userDetails)
       .then(() => {
-        toast.success("Registration Successful");
-        navigate("/login");
+        toast.success("Profile Updated");
+        navigate("/profile");
       })
       .catch(() => {
-        toast.error("Registration Failed !");
+        toast.error("Failed !!! Try again");
       });
   };
 
   return (
     <div>
-      <h1>Register</h1>
-      <form onSubmit={registerSubmit}>
+      <h1>Update User</h1>
+      <form onSubmit={updateFormSubmit}>
         <div>
           <label htmlFor="username">Name </label>
           <input
             type="text"
-            required
+            readOnly
             placeholder="Enter you name"
             name="username"
             id="username"
-            value={registerUser.username}
-            onChange={registerHandle}
+            value={userDetails?.username}
             autoComplete="name"
           />
         </div>
@@ -56,8 +62,8 @@ const Register = () => {
             placeholder="Enter you Email Id"
             name="useremail"
             id="useremail"
-            value={registerUser.useremail}
-            onChange={registerHandle}
+            value={userDetails?.useremail}
+            onChange={handleChange}
             autoComplete="email"
           />{" "}
         </div>
@@ -69,8 +75,8 @@ const Register = () => {
             placeholder="Enter your Password"
             name="userpassword"
             id="userpassword"
-            value={registerUser.userpassword}
-            onChange={registerHandle}
+            value={userDetails?.userpassword}
+            onChange={handleChange}
             autoComplete="current-password"
           />{" "}
         </div>
@@ -78,20 +84,19 @@ const Register = () => {
           <label htmlFor="userPhoneNo">Phone No. </label>
           <input
             type="tel"
-            required
+            readOnly
             placeholder="Enter Phone No."
             name="userPhoneNo"
             id="userPhoneNo"
-            value={registerUser.userPhoneNo}
-            onChange={registerHandle}
+            value={userDetails?.userPhoneNo}
             autoComplete="tel"
           />
         </div>
         <div>
-          <button type="submit">Register</button>
+          <button type="submit">Update</button>
         </div>
       </form>
     </div>
   );
 };
-export default Register;
+export default UpdateProfile;
