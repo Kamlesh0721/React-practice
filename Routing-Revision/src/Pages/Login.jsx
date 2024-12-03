@@ -19,7 +19,7 @@ const Login = () => {
   // Fetching Registered User from server
   useEffect(() => {
     async function fetchRegistredUser() {
-      let { data } = await axios.get("http://localhost:5001/users");
+      let { data } = await axios.get("http://localhost:5000/users");
       setAllRegistredUser(data);
       console.log(data);
     }
@@ -38,7 +38,22 @@ const Login = () => {
 
     console.log(authUser);
 
-    if (authUser) {
+    const isAdmin = () => {
+      if (
+        authUser.useremail === "admin@gmail.com" &&
+        authUser.userpassword === "admin123"
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    if (isAdmin()) {
+      toast.success(`Welcome `);
+      localStorage.setItem("userID", authUser.id);
+      navigate("/admin");
+    } else if (authUser) {
       toast.success(`Welcome ${authUser.username}`);
       localStorage.setItem("userID", authUser.id);
       navigate("/profile");
@@ -84,4 +99,5 @@ const Login = () => {
     </>
   );
 };
+
 export default Login;

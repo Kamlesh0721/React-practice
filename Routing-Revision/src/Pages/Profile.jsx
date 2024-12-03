@@ -1,13 +1,25 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Profile = () => {
   let userID = localStorage.getItem("userID");
   let [profileUser, setProfileUser] = useState(null);
   let [APIUsers, setAPIUsers] = useState(null);
+  const navigate = useNavigate();
+  console.log(profileUser?.username);
+  console.log(profileUser?.userpassword);
+
+  if (
+    profileUser?.useremail === "admin@gmail.com" &&
+    profileUser?.userpassword === "admin123"
+  ) {
+    navigate("/admin");
+  }
+
   useEffect(() => {
     async function fetchAuthUser() {
-      let { data } = await axios.get(`http://localhost:5001/users/${userID}`);
+      let { data } = await axios.get(`http://localhost:5000/users/${userID}`);
       setProfileUser(data);
       console.log(data);
     }

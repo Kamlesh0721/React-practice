@@ -8,6 +8,7 @@ import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import UpdateProfile from "./Pages/UpdateProfile";
 import Admin from "./Pages/Admin";
+import AdminUpdate from "./Pages/AdminUpdate";
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/updateProfile" element={<UpdateProfile />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/adminUpdate/:id" element={<AdminUpdate />} />
         </Routes>
       </BrowserRouter>
     </>

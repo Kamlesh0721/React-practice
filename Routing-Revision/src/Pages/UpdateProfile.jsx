@@ -12,7 +12,7 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     async function fetchUser() {
-      let { data } = await axios.get(`http://localhost:5001/users/${userID}`);
+      let { data } = await axios.get(`http://localhost:5000/users/${userID}`);
       console.log(data);
       setUserDetails(data);
     }
@@ -28,7 +28,7 @@ const UpdateProfile = () => {
     e.preventDefault();
     console.log("Updated value ", userDetails);
     axios
-      .put(`http://localhost:5001/users/${userID}`, userDetails)
+      .put(`http://localhost:5000/users/${userID}`, userDetails)
       .then(() => {
         toast.success("Profile Updated");
         navigate("/profile");

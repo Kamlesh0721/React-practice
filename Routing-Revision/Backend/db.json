@@ -1,3 +1,25 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "2e93",
+      "username": "Admin",
+      "useremail": "admin@gmail.com",
+      "userpassword": "admin123",
+      "userPhoneNo": "012345"
+    },
+    {
+      "id": "75bf",
+      "username": "test1",
+      "useremail": "test1@gamil.com",
+      "userpassword": "test1pass",
+      "userPhoneNo": "1231"
+    },
+    {
+      "id": "0b5f",
+      "username": "test",
+      "useremail": "test@gmail.com",
+      "userpassword": "testpass",
+      "userPhoneNo": "123"
+    }
+  ]
 }
