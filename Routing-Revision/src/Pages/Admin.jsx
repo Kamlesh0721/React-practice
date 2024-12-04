@@ -31,6 +31,7 @@ const Admin = () => {
       <h1>Admin Page</h1>
       {allUsers?.map(
         ({ id, username, useremail, userpassword, userPhoneNo }) => {
+          if (id === localStorage.getItem("userID")) return null;
           return (
             <section key={id}>
               <h1>Name : {username}</h1>

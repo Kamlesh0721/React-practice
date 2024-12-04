@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "../../Routing/browser-router/src/components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import PrivateRoute from "./components/PrivateRoute";
+import Home from "../../Routing/browser-router/src/pages/Home";
+import About from "../../Routing/browser-router/src/pages/About";
+import Login from "../../Routing/browser-router/src/pages/Login";
+import Register from "../../Routing/browser-router/src/pages/Register";
+import PrivateRoute from "../../Routing/browser-router/src/components/PrivateRoute";
 import { Toaster } from "react-hot-toast";
-import Profile from "./pages/Profile";
-import UpdateProfile from "./pages/UpdateProfile";
-import Admin from "./components/Admin";
+import Profile from "../../Routing/browser-router/src/pages/Profile";
+import UpdateProfile from "../../Routing/browser-router/src/pages/UpdateProfile";
+import Admin from "../../Routing/browser-router/src/pages/Admin";
 const App = () => {
   return (
     <div>
@@ -37,7 +37,6 @@ const App = () => {
               </PrivateRoute>
             }
           />
-
           <Route
             path="/admin"
             element={

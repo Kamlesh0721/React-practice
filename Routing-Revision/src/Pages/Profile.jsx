@@ -10,6 +10,7 @@ const Profile = () => {
   console.log(profileUser?.username);
   console.log(profileUser?.userpassword);
 
+  // when clicking on profile from admin page it was opening user profile and also when updating value of admin
   if (
     profileUser?.useremail === "admin@gmail.com" &&
     profileUser?.userpassword === "admin123"

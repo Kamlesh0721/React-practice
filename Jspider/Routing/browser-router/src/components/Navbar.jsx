@@ -2,6 +2,7 @@ import React from "react";
 import style from "./navbar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from "axios";
 const Navbar = () => {
   let userID = localStorage.getItem("userID");
   console.log(userID, "Navbar");
@@ -12,6 +13,24 @@ const Navbar = () => {
     localStorage.removeItem("userID");
     navigate("/login");
     toast.success("Logged Out");
+  };
+
+  let deleteProfile = () => {
+    let confirmationVal = confirm("Are you sure?");
+    console.log(confirmationVal);
+    
+    if (confirmationVal) {
+      axios
+        .delete(`http://localhost:5000/users/${userID}`)
+        .then(() => {
+          toast.success("account deleted");
+          localStorage.removeItem("userID");
+          navigate("/register");
+        })
+        .catch(() => {
+          toast.error("something went wrong");
+        });
+    }
   };
 
   return (
@@ -29,8 +48,10 @@ const Navbar = () => {
             <li className={style.drop}>
               <Link to="/profile">Profile</Link>
               <ul className={style.dropdown}>
-                <li><Link to="/updateprofile">update</Link></li>
-                <li>delete</li>
+                <li>
+                  <Link to="/updateprofile">update</Link>
+                </li>
+                <li onClick={deleteProfile}>delete</li>
                 <li onClick={logout}>Logout</li>
               </ul>
             </li>
