@@ -4,6 +4,8 @@ import { increment, decrement, reset } from "./App";
 const Counter = () => {
   let stateVal = useSelector((state) => state);
   let dispatch = useDispatch();
+  console.log(dispatch);
+
   return (
     <div>
       <h3>Counter : {stateVal}</h3>
